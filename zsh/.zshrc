@@ -2,6 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# Plugins
 plugins=(git #自带的 
 	sudo #自带的
 	docker #自带的
@@ -10,9 +11,32 @@ plugins=(git #自带的
 	zsh-syntax-highlighting #需要自己安装插件
 )
 
-source $ZSH/oh-my-zsh.sh
+# Powerlevel 10k elements.
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+    os_icon
+    anaconda
+    host
+    dir
+    vcs
+)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+    command_execution_time
+    status
+    load
+    ram
+    background_jobs
+    time
+)
 
-source $HOME/.p10k.zsh
+# Powerlevel 10k appearance.
+POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_TIME_FORMAT="%D{%Y-%m-%d %H:%M:%S}"
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_HOST_ICON="\uF109 "
+POWERLEVEL9K_SSH_ICON="\uF489 "
+POWERLEVEL9K_LINUX_ICON="\uF1D7"
+
+source $ZSH/oh-my-zsh.sh
 
 # Git alias
 function gita () {
